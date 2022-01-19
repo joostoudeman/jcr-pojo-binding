@@ -259,4 +259,10 @@ public class BinaryValue {
         return sbTemp.toString();
     }
 
+    // this dispose is necessary to avoid the heap piling up
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        dispose();
+    }
 }
